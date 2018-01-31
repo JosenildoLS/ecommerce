@@ -3,7 +3,7 @@
     "authors": [
         {
             "name": "Josenildo de Lima Silva",
-            "email": "josenildodelimasilva@gmail.com"
+            "email": "josenildodelimasilva@hotmail.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\hcodebr\\php-classes\\src"
+            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
         }
     }
 }
