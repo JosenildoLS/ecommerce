@@ -9,11 +9,13 @@ class Page {
     private $tpl;
     private $options = [];
     private $defaults = [
+        "header" => true,
+        "footer" => true,
         "data" => []
     ];
 
     public function __construct($option = array(), $tpl_dir = "/views/") {
-
+//        $this->defaults['data']['sessions'] = $_SESSION;
         $this->options = array_merge($this->defaults, $option);
 
 // config RainTpl
@@ -30,7 +32,8 @@ class Page {
         $this->setData($this->options['data']);
 
         // Inclui o header
-        $this->tpl->draw('header');
+        if ($this->options['header'] === TRUE)
+            $this->tpl->draw('header');
     }
 
     public function setTpl($name, $data = array(), $returnHTML = false) {
@@ -40,7 +43,8 @@ class Page {
 
     // Inclui o rodapé
     public function __destruct() {
-        $this->tpl->draw('footer');
+        if ($this->options['footer'] === TRUE)
+            $this->tpl->draw('footer');
     }
 
     private function setData($data = array()) {
